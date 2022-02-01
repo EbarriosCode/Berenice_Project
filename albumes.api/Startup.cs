@@ -1,4 +1,5 @@
 using albumes.infrastructure.data.DataContext;
+using albumes.middleware.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,9 @@ namespace albumes.api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "albumes.api", Version = "v1" });
             });
+
+            // Init IoC Services
+            DependencyContainer.AddDependency(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
