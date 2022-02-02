@@ -1,4 +1,5 @@
-﻿using albumes.infrastructure.data.Respositories.Custom.Albumes;
+﻿using albumes.application.Handlers.Albumes;
+using albumes.infrastructure.data.Respositories.Custom.Albumes;
 using albumes.infrastructure.data.Respositories.Custom.Artists;
 using albumes.infrastructure.data.Respositories.Generic;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,8 @@ namespace albumes.middleware.IoC
             
             // Inject repositories
             services.AddScoped<IAlbumesRepository, AlbumesRepository>();
+            services.AddScoped<IAlbumesHandler, AlbumesHandler>();
+
             services.AddScoped<IArtistsRepository, ArtistsRepository>();
 
             return services;

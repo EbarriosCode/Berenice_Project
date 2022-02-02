@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\albumes.application\albumes.application.csproj" />
     <ProjectReference Include="..\albumes.infrastructure.data\albumes.infrastructure.data.csproj" />
     <ProjectReference Include="..\albumes.middleware\albumes.middleware.csproj" />
   </ItemGroup>
