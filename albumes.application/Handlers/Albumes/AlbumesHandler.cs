@@ -1,9 +1,7 @@
 ﻿using albumes.infrastructure.data.Respositories.Custom.Albumes;
 using albumes.models.Entities;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace albumes.application.Handlers.Albumes
@@ -29,7 +27,7 @@ namespace albumes.application.Handlers.Albumes
             return await Task.FromResult(listOfAlbumes);
         }
 
-        public async Task<Album> GetAlbum(int id)
+        public async Task<Album> GetAlbumById(int id)
         {
             Album album = null;            
 

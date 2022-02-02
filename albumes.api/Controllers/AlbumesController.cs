@@ -34,7 +34,7 @@ namespace albumes.api.Controllers
             if (AlbumID <= 0)
                 return BadRequest("Invalid ID");
 
-            var album = await Task.Run(() => this._handler.GetAlbum(AlbumID));
+            var album = await Task.Run(() => this._handler.GetAlbumById(AlbumID));
 
             if (album == null)
                 return NotFound();
@@ -51,7 +51,6 @@ namespace albumes.api.Controllers
 
             await this._handler.CreateAlbumAsync(album);
 
-            //return StatusCode((int)HttpStatusCode.Created, album);
             return CreatedAtAction(nameof(Get), new { Id = album.AlbumID}, album);
         }
 
@@ -74,7 +73,7 @@ namespace albumes.api.Controllers
             if (AlbumID <= 0)
                 return BadRequest("Invalid ID");
 
-            var album = this._handler.GetAlbum(AlbumID).Result;
+            var album = this._handler.GetAlbumById(AlbumID).Result;
 
             if (album == null)
                 return NotFound();
