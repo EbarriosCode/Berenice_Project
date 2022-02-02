@@ -1,4 +1,5 @@
 ﻿using albumes.application.Handlers.Albumes;
+using albumes.application.Handlers.Artists;
 using albumes.infrastructure.data.Respositories.Custom.Albumes;
 using albumes.infrastructure.data.Respositories.Custom.Artists;
 using albumes.infrastructure.data.Respositories.Generic;
@@ -19,6 +20,7 @@ namespace albumes.middleware.IoC
             services.AddScoped<IAlbumesHandler, AlbumesHandler>();
 
             services.AddScoped<IArtistsRepository, ArtistsRepository>();
+            services.AddScoped<IArtistsHandler, ArtistsHandler>();
 
             return services;
         }

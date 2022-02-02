@@ -18,7 +18,7 @@ namespace albumes.api.Controllers
             this._handler = handler;
         }
 
-        // GET: api/Album
+        // GET: api/Albumes
         [HttpGet]
         public async Task<ActionResult<AlbumDTO[]>> Get()
         {
@@ -27,9 +27,9 @@ namespace albumes.api.Controllers
             return Ok(albumes);
         }
 
-        // GET: api/Album/5
+        // GET: api/Albumes/5
         [HttpGet("{AlbumID}")]
-        public async Task<ActionResult<AlbumDTO>> GetCountry(int AlbumID)
+        public async Task<ActionResult<AlbumDTO>> Get(int AlbumID)
         {
             if (AlbumID <= 0)
                 return BadRequest("Invalid ID");
@@ -42,7 +42,7 @@ namespace albumes.api.Controllers
             return Ok(album);
         }
 
-        // POST: api/Album
+        // POST: api/Albumes
         [HttpPost]
         public async Task<ActionResult<AlbumDTO>> Post([FromBody] AlbumDTO album)
         {
@@ -55,7 +55,7 @@ namespace albumes.api.Controllers
             return CreatedAtAction(nameof(Get), new { Id = album.AlbumID}, album);
         }
 
-        // PUT: api/Album        
+        // PUT: api/Albumes       
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] AlbumDTO album)
         {
@@ -67,7 +67,7 @@ namespace albumes.api.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Album/5
+        // DELETE: api/Albumes/5
         [HttpDelete("{AlbumID}")]
         public async Task<IActionResult> Delete(int AlbumID)
         {
