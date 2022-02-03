@@ -1,0 +1,39 @@
+<form [formGroup]="albumForm" (ngSubmit)="onCreateAlbum(albumForm.value)" class="row g-3">
+    <div class="col-md-6">
+      <label for="inputTitle" class="form-label">Title</label>
+      <input type="text" class="form-control" id="inputTitle" formControlName="title">
+    </div>
+
+    <div class="col-md-6">
+        <label for="inputArtist" class="form-label">Artist</label>
+        <select id="inputArtist" class="form-select" formControlName="artistID">         
+            <option value="{{artist.artistID}}" 
+                  *ngFor="let artist of artists;">
+                    {{artist.name}}
+            </option>
+        </select>
+    </div>
+    <div class="col-md-6">
+      <label for="inputPrice" class="form-label">Price</label>
+      <input type="number" class="form-control" id="inputPrice" formControlName="price">
+    </div>
+
+    <div class="col-md-6">
+        <label for="inputPrice" class="form-label">Date</label>
+        <input type="date" class="form-control" id="inputPrice" formControlName="date">
+      </div>
+
+
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck" formControlName="availableToPurchase">
+        <label class="form-check-label" for="gridCheck">
+          Availible to Purchase
+        </label>
+      </div>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Create</button>  | 
+      <a href="albumes" class="btn btn btn-warning">Back To List</a>
+    </div>
+</form>
