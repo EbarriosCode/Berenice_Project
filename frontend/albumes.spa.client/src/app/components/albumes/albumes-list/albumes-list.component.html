@@ -1,0 +1,32 @@
+<h3 class="text-center">Albumes</h3>
+<br>
+<a href="create" class="btn btn-primary">Create</a>
+<br><br>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Artist</th>
+            <th scope="col">Price</th>
+            <th scope="col">Date</th>
+            <th scope="col">Available to purchase</th>
+            <th colspan="2" scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let album of albumes; let counter = index">
+            <th scope="row">{{counter+1}}</th>
+            <td>{{album.title}}</td>
+            <td>{{album.artist.name}}</td>
+            <td>{{album.price}}</td>
+            <td>{{album.date}}</td>
+            <td *ngIf="album.availableToPurchase == true">Yes</td>
+            <td *ngIf="album.availableToPurchase == false">No</td>
+            <td>
+                <button type="button" class="btn btn-success" (click)="editAlbum(album.albumID)">Edit</button> |
+                <button type="button" class="btn btn-danger" (click)="deleteAlbum(album.albumID)">Remove</button>
+            </td>
+        </tr>      
+    </tbody>
+</table>
